@@ -2,7 +2,6 @@
 
 module MailchimpAPI
   class Base < ActiveResource::Base
-    # self.headers['X-Auth-Client'] = MailchimpAPI.configuration.client_id
     headers['User-Agent'] = "MailchimpAPI/#{MailchimpAPI::VERSION}"
     headers['Accept'] = 'application/json'
     headers['Authorization'] = 'OAuth '
