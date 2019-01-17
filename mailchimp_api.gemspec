@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activeresource', '~> 5.1.0'
 
-  spec.add_development_dependency 'bundler', '~> 2.0.0'
+  spec.add_development_dependency 'bundler', '~> 2.0.1'
   spec.add_development_dependency 'rake', '~> 11.2.2'
 
   spec.add_development_dependency 'http_logger', '~> 0.5.1'
