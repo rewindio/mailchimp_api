@@ -2,11 +2,13 @@
 
 module MailchimpAPI
   class Configuration
+    DEFAULT_API_REGION_IDENTIFIER = '__API_REGION_IDENTIFIER__'
+
     attr_accessor :url
 
     def initialize
       # base url
-      @url = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/'
+      @url = "https://#{DEFAULT_API_REGION_IDENTIFIER}.api.mailchimp.com/3.0/"
     end
   end
 

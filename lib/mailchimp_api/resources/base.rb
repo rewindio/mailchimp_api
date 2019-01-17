@@ -18,7 +18,7 @@ module MailchimpAPI
       def activate_session(session)
         self.headers['Authorization'] = "OAuth #{session.oauth_token}" # rubocop:disable Style/RedundantSelf
 
-        MailchimpAPI::Base.site = MailchimpAPI.configuration.url.sub '__API_REGION_IDENTIFIER__', session.api_region_identifier
+        MailchimpAPI::Base.site = MailchimpAPI.configuration.url.sub MailchimpAPI::Configuration::DEFAULT_API_REGION_IDENTIFIER, session.api_region_identifier
       end
 
       def reset_session

@@ -6,7 +6,7 @@ module MailchimpAPI
 
     def initialize(oauth_token)
       self.oauth_token            = oauth_token
-      self.api_region_identifier  = oauth_token&.split('-')&.last || '__API_REGION_IDENTIFIER__'
+      self.api_region_identifier  = oauth_token&.split('-')&.last || MailchimpAPI::Configuration::DEFAULT_API_REGION_IDENTIFIER
     end
 
     class << self
