@@ -8,7 +8,6 @@ The best way to consume Mailchimp's v3 APIs!
 ###### Add this line to your application's Gemfile
 ```ruby
   gem 'mailchimp_api'
-end
 ```
 
 ## Usage
