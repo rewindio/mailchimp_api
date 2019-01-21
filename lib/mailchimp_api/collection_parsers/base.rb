@@ -8,7 +8,7 @@ module MailchimpAPI::CollectionParsers
       @links        = instantiate_links response.delete '_links'
       @total_items  = response.delete 'total_items'
 
-      @elements = response[element_key]
+      @elements = response[element_key] || []
     end
 
     protected
