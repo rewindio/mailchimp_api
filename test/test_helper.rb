@@ -5,6 +5,7 @@ require 'minitest/test'
 require 'minitest/reporters'
 
 require 'factory_bot'
+require 'webmock/minitest'
 
 require 'pry'
 
