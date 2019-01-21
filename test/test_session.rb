@@ -5,6 +5,8 @@ require 'test_helper'
 module MailchimpAPI
   class SessionTest < Test::Unit::TestCase
     def setup
+      super
+
       @oauth_token = 'xxxyyyzzz-us7'
     end
 

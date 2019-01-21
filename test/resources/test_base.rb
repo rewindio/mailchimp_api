@@ -5,10 +5,14 @@ require 'test_helper'
 module MailchimpAPI
   class TestBase < Test::Unit::TestCase
     def setup
+      super
+
       MailchimpAPI::Base.reset_session
     end
 
     def teardown
+      super
+
       MailchimpAPI::Base.reset_session
     end
 
