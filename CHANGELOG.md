@@ -5,3 +5,4 @@
 ### Added
 - Support of `/`
 - Support of `/lists`
+- `.count` support
