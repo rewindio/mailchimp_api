@@ -8,7 +8,7 @@ module MailchimpAPI::Support
       super
 
       stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/lists?count=0&fields=total_items')
-        .to_return body: { total_items: 2 }.to_json
+        .to_return body: load_fixture(:count_payload)
     end
 
     def test_successful_count
