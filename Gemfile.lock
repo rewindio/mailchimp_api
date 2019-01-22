@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mailchimp_api (0.0.1.pre.0)
+    mailchimp_api (1.0.0.pre.0)
       activeresource (~> 5.1.0)
 
 GEM
