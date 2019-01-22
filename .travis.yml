@@ -10,5 +10,6 @@ deploy:
     secure: RHfxHysnVGHFZoU1c635HdyWC0GY+pOEMZTUrtkucyrppA/57j8q2flLVDACSjHusjKWqeSsV/01LyTOs6e3pKopSo60fOc5L2xXv5fyP5P0xh/SmsTovzJpCfV0ATp3HFq856HA724S0vMyn4Ca3rAuGcCAqdhV8f7KygmH0ud1mAmOvprzeqHTi+QXrShSWizHXL4P90lMGNqLiWaEFK7bfkH23lmCya0jpiyXF79XjwEP4iFBpDUWD1R+9GoDI6JFC0gWzqo6p1JRT1eVrItuUOC/S2JchVOFzx3JnL5tn1OCZC4Y7MIk5gmb5P/DGGx/6piGc47elEv1gRCHrOgwLJmsBXmF06beb21QGz87ndHincfjGXyFFiFZvlkIwOgmndPOfIcGshQ/nPaOpgHiiOPqy2y702xvIi3SdlSIAJOZoBj0IqUUSrgVw0NiB9jBMfzpUMzL4815YQ55QIkicfxPouEMd1RKc4jwTdjf2Ri+G5uPpzUNmyNJ01tZwTDhmJpFF447Qdaj+rRzyLoOMufQiIPbZFSAfBFvJ2+23m7PmfmUttLLryk/63SoxmX0I5FwHHdtt/HzKt47SNS3Yq/s5/8kn5ZFaheh96caxkMXPoV3+4EtFfvMoWXdXMlxEMRuleuMxHqc+LgcOgKEO1B64VZFffV7Edr8rjo=
   gem: mailchimp_api
   on:
-    tags: true
     repo: rewindio/mailchimp_api
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^dev|master$
