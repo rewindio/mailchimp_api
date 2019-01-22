@@ -5,6 +5,8 @@ require 'test_helper'
 module MailchimpAPI
   class JsonFormatterTest < Test::Unit::TestCase
     def setup
+      super
+
       @json_formatter = MailchimpAPI::JsonFormatter.new nil
     end
 

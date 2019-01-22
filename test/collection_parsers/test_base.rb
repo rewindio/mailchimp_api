@@ -5,6 +5,8 @@ require 'test_helper'
 module MailchimpAPI::CollectionParsers
   class TestBase < Test::Unit::TestCase
     def setup
+      super
+
       json_formatter  = MailchimpAPI::JsonFormatter.new nil
       @decoded_json   = json_formatter.decode load_fixture(:lists)
     end

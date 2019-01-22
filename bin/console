@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "mailchimp_api"
+require 'bundler/setup'
+require 'mailchimp_api'
 
 require 'http_logger'
 HttpLogger.log_headers  = true
 HttpLogger.logger       = Logger.new STDOUT
 
 
-require "pry"
+require 'pry'
 Pry.pager = nil
 
 Pry.start

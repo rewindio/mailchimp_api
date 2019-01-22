@@ -2,6 +2,8 @@
 
 module MailchimpAPI
   class List < Base
+    extend MailchimpAPI::Support::Countable
+
     self.collection_parser = CollectionParsers::List
   end
 end

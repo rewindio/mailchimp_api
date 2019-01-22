@@ -17,8 +17,8 @@
       "permission_reminder": "permission reminder",
       "use_archive_bar": true,
       "campaign_defaults": {
-        "from_name": "Test McTesterson",
-        "from_email": "test@gmail.com",
+        "from_name": "Testy McTesterson",
+        "from_email": "testy@gmail.com",
         "subject": "This is from List - 0",
         "language": "en"
       },
@@ -180,8 +180,8 @@
       "permission_reminder": "You are receiving this email because you opted in via our website.",
       "use_archive_bar": true,
       "campaign_defaults": {
-        "from_name": "Test McTesterson",
-        "from_email": "test@gmail.com",
+        "from_name": "Testy McTesterson",
+        "from_email": "testy@gmail.com",
         "subject": "",
         "language": "en"
       },
