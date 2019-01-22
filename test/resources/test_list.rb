@@ -4,15 +4,17 @@ require 'test_helper'
 
 module MailchimpAPI
   class TestList < Test::Unit::TestCase
+    BASE_LIST_URL = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/lists'
+
     def setup
       super
 
-      stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/lists')
+      stub_request(:get, BASE_LIST_URL)
         .to_return body: load_fixture(:lists)
     end
 
     def test_countable
-      stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/lists?count=0&fields=total_items')
+      stub_request(:get, BASE_LIST_URL + '?count=0&fields=total_items')
         .to_return body: load_fixture(:count_payload)
 
       assert_equal 2, MailchimpAPI::List.count
@@ -41,7 +43,7 @@ module MailchimpAPI
     def test_fetches_specific_list
       list_id = '6574d0bcc7'
 
-      stub_request(:get, "https://__api_region_identifier__.api.mailchimp.com/3.0/lists/#{list_id}")
+      stub_request(:get, BASE_LIST_URL + "/#{list_id}")
         .to_return body: load_fixture(:list)
 
       list = MailchimpAPI::List.find list_id
