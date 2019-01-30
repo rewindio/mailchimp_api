@@ -2,8 +2,10 @@
 
 module MailchimpAPI::Support
   module Countable
-    def count
-      all(params: { fields: 'total_items', count: 0 }).total_items
+    def count(params = {})
+      all_params = params.deep_merge(params: { fields: 'total_items', count: 0 })
+
+      all(all_params).total_items
     end
   end
 end
