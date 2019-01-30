@@ -7,8 +7,10 @@ require 'http_logger'
 HttpLogger.log_headers  = true
 HttpLogger.logger       = Logger.new STDOUT
 
-
 require 'pry'
 Pry.pager = nil
 
-Pry.start
+# DO NOT COMMIT YOUR API KEY
+API_KEY = 'xxx'
+
+MailchimpAPI::Session.temp(API_KEY) { Pry.start }
