@@ -10,8 +10,8 @@ module MailchimpAPI
     self.collection_name = 'interest-categories'
 
     protected
-    
-    # This resource only accepts updates via PATCH requests, not standard ActiveResource PUT requests
+
+    # Overridden - This resource only accepts updates via PATCH requests, not standard ActiveResource PUT requests
     def update
       run_callbacks :update do
         connection.patch(element_path(prefix_options), encode, self.class.headers).tap do |response|

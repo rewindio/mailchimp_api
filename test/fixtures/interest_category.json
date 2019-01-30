@@ -1,0 +1,35 @@
+{
+  "list_id": "list1234",
+  "id": "ic1234",
+  "title": "Fav Pizza Toppings",
+  "display_order": 0,
+  "type": "radio",
+  "_links": [{
+    "rel": "self",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/interest-categories/ic1234",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/InterestCategories/Response.json"
+  }, {
+    "rel": "parent",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/interest-categories",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/InterestCategories/CollectionResponse.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"
+  }, {
+    "rel": "update",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/interest-categories/ic1234",
+    "method": "PATCH",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/InterestCategories/Response.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/InterestCategories/PATCH.json"
+  }, {
+    "rel": "delete",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/interest-categories/ic1234",
+    "method": "DELETE"
+  }, {
+    "rel": "interests",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/interest-categories/ic1234/interests",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/Interests/CollectionResponse.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"
+  }]
+}
