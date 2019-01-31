@@ -10,7 +10,13 @@ HttpLogger.logger       = Logger.new STDOUT
 require 'pry'
 Pry.pager = nil
 
-# DO NOT COMMIT YOUR API KEY
-API_KEY = 'xxx'
+require 'yaml'
 
-MailchimpAPI::Session.temp(API_KEY) { Pry.start }
+# Pre-configure playground if they have config file set.
+# Otherwise they are on their own.
+config_file = config = YAML::load(IO.read('./dev-config.yml')) if File.exists? './dev-config.yml'
+if config_file
+  MailchimpAPI::Session.temp(config_file['api_key']) { Pry.start }
+else
+  Pry.start
+end
