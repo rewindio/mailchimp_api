@@ -5,4 +5,5 @@
 ### Added
 - Support of `/`
 - Support of `/lists`
+- Support of '/lists/<id>/interest-categories'
 - `.count` support

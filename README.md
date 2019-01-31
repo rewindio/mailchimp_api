@@ -45,7 +45,13 @@ account.with_mailchimp_session { MailchimpAPI::List.all }
 
 ## Development
 
-After checking out the repository, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repository, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests.
+
+You can also run `bin/console` for an interactive prompt that will allow you to experiment. You can create a file in the root of the project called `dev-config.yml` and add your API key to it:
+```
+api_key: <your-api-key>
+```
+This will tell the console to pre-authenticate the Mailchimp session, making it easier to test.
 
 ## Contributing
 
