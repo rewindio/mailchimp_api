@@ -7,6 +7,7 @@ module MailchimpAPI
     self.collection_parser = CollectionParsers::InterestCategory
 
     self.prefix = '/3.0/lists/:list_id/'
+    self.element_name = 'interest-category'
     self.collection_name = 'interest-categories'
 
     protected
