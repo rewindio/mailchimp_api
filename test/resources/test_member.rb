@@ -22,7 +22,7 @@ describe MailchimpAPI::Member do
     assert_instance_of MailchimpAPI::Member, members.first
   end
 
-  it 'raises an error with no list_io prefix_option' do
+  it 'raises an error with no list_id prefix_option' do
     error =
       assert_raises ActiveResource::MissingPrefixParam do
         MailchimpAPI::Member.all
