@@ -2,50 +2,44 @@
 
 require 'test_helper'
 
-module MailchimpAPI
-  class TestBase < Test::Unit::TestCase
-    def setup
-      super
+describe MailchimpAPI::Base do
+  before do
+    MailchimpAPI::Base.reset_session
+  end
 
-      MailchimpAPI::Base.reset_session
-    end
+  after do
+    MailchimpAPI::Base.reset_session
+  end
 
-    def teardown
-      super
+  it 'properly initializes the headers' do
+    assert_equal "MailchimpAPI/#{MailchimpAPI::VERSION}", MailchimpAPI::Base.headers['User-Agent']
+    assert_equal 'application/json', MailchimpAPI::Base.headers['Accept']
+    assert_equal 'OAuth ', MailchimpAPI::Base.headers['Authorization']
+  end
 
-      MailchimpAPI::Base.reset_session
-    end
+  it 'actives a session' do
+    assert_equal MailchimpAPI::Base.headers['Authorization'], 'OAuth '
+    assert_equal MailchimpAPI::Base.site.to_s, MailchimpAPI.configuration.url
 
-    def test_initalized_headers
-      assert_equal "MailchimpAPI/#{MailchimpAPI::VERSION}", MailchimpAPI::Base.headers['User-Agent']
-      assert_equal 'application/json', MailchimpAPI::Base.headers['Accept']
-      assert_equal 'OAuth ', MailchimpAPI::Base.headers['Authorization']
-    end
+    session = MailchimpAPI::Session.new 'xxxyyyzzz-us3'
 
-    def test_activate_session
-      assert_equal MailchimpAPI::Base.headers['Authorization'], 'OAuth '
-      assert_equal MailchimpAPI::Base.site.to_s, MailchimpAPI.configuration.url
+    MailchimpAPI::Base.activate_session session
 
-      session = MailchimpAPI::Session.new 'xxxyyyzzz-us3'
+    assert_equal MailchimpAPI::Base.headers['Authorization'], "OAuth #{session.oauth_token}"
+    assert_match session.api_region_identifier, MailchimpAPI::Base.site.to_s
+  end
 
-      MailchimpAPI::Base.activate_session session
+  it 'resets a session' do
+    session = MailchimpAPI::Session.new 'xxxyyyzzz-us3'
 
-      assert_equal MailchimpAPI::Base.headers['Authorization'], "OAuth #{session.oauth_token}"
-      assert_match session.api_region_identifier, MailchimpAPI::Base.site.to_s
-    end
+    MailchimpAPI::Base.activate_session session
 
-    def test_reset_session
-      session = MailchimpAPI::Session.new 'xxxyyyzzz-us3'
+    assert_equal MailchimpAPI::Base.headers['Authorization'], "OAuth #{session.oauth_token}"
+    assert_match session.api_region_identifier, MailchimpAPI::Base.site.to_s
 
-      MailchimpAPI::Base.activate_session session
+    MailchimpAPI::Base.reset_session
 
-      assert_equal MailchimpAPI::Base.headers['Authorization'], "OAuth #{session.oauth_token}"
-      assert_match session.api_region_identifier, MailchimpAPI::Base.site.to_s
-
-      MailchimpAPI::Base.reset_session
-
-      assert_equal MailchimpAPI::Base.headers['Authorization'], 'OAuth '
-      assert_equal MailchimpAPI::Base.site.to_s, MailchimpAPI.configuration.url
-    end
+    assert_equal MailchimpAPI::Base.headers['Authorization'], 'OAuth '
+    assert_equal MailchimpAPI::Base.site.to_s, MailchimpAPI.configuration.url
   end
 end
