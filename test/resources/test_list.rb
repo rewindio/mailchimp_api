@@ -2,45 +2,47 @@
 
 require 'test_helper'
 
-module MailchimpAPI
-  class TestList < Test::Unit::TestCase
-    BASE_LIST_URL = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/lists'
+describe MailchimpAPI::List do
+  BASE_LIST_URL = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/lists'
 
-    def setup
-      super
+  before do
+    stub_request(:get, BASE_LIST_URL)
+      .to_return body: load_fixture(:lists)
+  end
 
-      stub_request(:get, BASE_LIST_URL)
-        .to_return body: load_fixture(:lists)
-    end
+  it 'instantiates proper class' do
+    lists = MailchimpAPI::List.all
 
-    def test_countable
+    assert_kind_of MailchimpAPI::CollectionParsers::List, lists
+    assert_instance_of MailchimpAPI::List, lists.first
+  end
+
+  describe 'countable' do
+    it 'gets proper count' do
       stub_request(:get, BASE_LIST_URL + '?count=0&fields=total_items')
         .to_return body: load_fixture(:count_payload)
 
       assert_equal 2, MailchimpAPI::List.count
     end
+  end
 
-    def test_instantiates_proper_class
-      lists = MailchimpAPI::List.all
-
-      assert_kind_of MailchimpAPI::CollectionParsers::List, lists
-      assert_instance_of MailchimpAPI::List, lists.first
-    end
-
-    def test_fetches_all_lists
+  describe 'GET /lists' do
+    it 'fetches all lists' do
       lists = MailchimpAPI::List.all
 
       assert_equal 2, lists.count
       assert_equal 2, lists.total_items
     end
 
-    def test_lists_has_valid_links
+    it 'lists links are Links' do
       lists = MailchimpAPI::List.all
 
       assert_kind_of MailchimpAPI::Link, lists.links.sample
     end
+  end
 
-    def test_fetches_specific_list
+  describe 'GET /links/:link_id' do
+    it 'fetches specific list' do
       list_id = '6574d0bcc7'
 
       stub_request(:get, BASE_LIST_URL + "/#{list_id}")

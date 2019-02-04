@@ -13,14 +13,9 @@ require 'mailchimp_api'
 
 Minitest::Reporters.use!
 
-module Test
-  module Unit
-    class TestCase < Minitest::Test
-      include FactoryBot::Syntax::Methods
-
-      def load_fixture(name, format = :json)
-        File.read File.dirname(__FILE__) + "/fixtures/#{name}.#{format}"
-      end
-    end
+# this felt dirty but it worked.
+class Minitest::Spec
+  def load_fixture(name, format = :json)
+    File.read File.dirname(__FILE__) + "/fixtures/#{name}.#{format}"
   end
 end

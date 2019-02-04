@@ -2,17 +2,13 @@
 
 require 'test_helper'
 
-module MailchimpAPI::Support
-  class TestCountable < Test::Unit::TestCase
-    def setup
-      super
+describe MailchimpAPI::Support::Countable do
+  before do
+    stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/lists?count=0&fields=total_items')
+      .to_return body: load_fixture(:count_payload)
+  end
 
-      stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/lists?count=0&fields=total_items')
-        .to_return body: load_fixture(:count_payload)
-    end
-
-    def test_successful_count
-      assert_equal 2, MailchimpAPI::List.count
-    end
+  it 'successfully gets a count' do
+    assert_equal 2, MailchimpAPI::List.count
   end
 end

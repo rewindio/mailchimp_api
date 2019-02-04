@@ -28,13 +28,10 @@ module MailchimpAPI
       end
 
       def headers
-        if _headers_defined?
-          _headers
-        elsif superclass != Object && superclass.headers
-          superclass.headers
-        else
-          _headers || {}
-        end
+        return _headers            if _headers_defined?
+        return superclass.headers  if superclass != Object && superclass.headers
+
+        _headers || {}
       end
     end
 
