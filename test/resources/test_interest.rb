@@ -46,8 +46,8 @@ describe MailchimpAPI::Interest do
     end
   end
 
-  describe 'PATCH /interest-categories/:interest_category_id/interests' do
-    it 'update_uses_patch_request' do
+  describe 'update' do
+    it 'calls PATCH /interest-categories/:interest_category_id/interests' do
       stub_request(:patch, SINGLE_INTEREST_URL)
         .to_return status: 200
 
