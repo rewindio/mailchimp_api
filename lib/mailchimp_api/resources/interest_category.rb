@@ -4,21 +4,12 @@ module MailchimpAPI
   class InterestCategory < Base
     extend MailchimpAPI::Support::Countable
 
+    include MailchimpAPI::Support::PatchUpdate
+
     self.collection_parser = CollectionParsers::InterestCategory
 
     self.prefix = '/3.0/lists/:list_id/'
     self.element_name = 'interest-category'
     self.collection_name = 'interest-categories'
-
-    protected
-
-    # Overridden - This resource only accepts updates via PATCH requests, not standard ActiveResource PUT requests
-    def update
-      run_callbacks :update do
-        connection.patch(element_path(prefix_options), encode, self.class.headers).tap do |response|
-          load_attributes_from_response(response)
-        end
-      end
-    end
   end
 end
