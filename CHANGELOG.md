@@ -9,3 +9,4 @@
 - Support of 'lists/<id>/interest-categories/<id>/interests'
 - Support of '/lists/<id>/members'
 - `.count` support
+- Support of '/lists/<id>/merge-fields'
