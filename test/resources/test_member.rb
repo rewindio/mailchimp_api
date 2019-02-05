@@ -48,6 +48,18 @@ describe MailchimpAPI::Member do
     end
   end
 
+  describe 'notes' do
+    it 'calls lists/:list_id/members/:member_id/notes with all IDs populated' do
+      stub_request(:get, SINGLE_MEMBER_URL + '/notes')
+        .to_return status: 200, body: load_fixture(:member)
+
+      member = MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' }
+      member.notes
+
+      assert_requested :get, SINGLE_MEMBER_URL + '/notes'
+    end
+  end
+
   describe 'POST /members/:member_id/actions/delete-permanent' do
     let(:member) { MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' } }
 

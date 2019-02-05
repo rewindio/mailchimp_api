@@ -39,7 +39,7 @@ describe MailchimpAPI::InterestCategory do
   end
 
   describe 'interests' do
-    it 'calls lists/:list_id/interest-categories/:interest_category_id with all IDs populated' do
+    it 'calls lists/:list_id/interest-categories/:interest_category_id/interests with all IDs populated' do
       stub_request(:get, SINGLE_INTEREST_CATEGORY_URL + '/interests')
         .to_return status: 200, body: load_fixture(:interests)
 
