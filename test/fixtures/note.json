@@ -1,0 +1,30 @@
+{
+  "id": 1234,
+  "created_at": "2019-02-05T17:16:20+00:00",
+  "created_by": "Testy McTesterson",
+  "updated_at": "2019-02-05T17:16:20+00:00",
+  "note": "This guy, man. This guy.",
+  "list_id": "list1234",
+  "email_id": "member1234",
+  "_links": [{
+    "rel": "self",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/members/member1234/notes/48217",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/Response.json"
+  }, {
+    "rel": "parent",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/members/member1234/notes",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json"
+  }, {
+    "rel": "update",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/members/member1234/notes/48217",
+    "method": "PATCH",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/Response.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/PATCH.json"
+  }, {
+    "rel": "delete",
+    "href": "https://us7.api.mailchimp.com/3.0/lists/list1234/members/member1234/notes/48217",
+    "method": "DELETE"
+  }]
+}

@@ -39,7 +39,7 @@ describe MailchimpAPI::InterestCategory do
   end
 
   describe 'interests' do
-    it 'calls lists/:list_id/interest-categories/:interest_category_id with all IDs populated' do
+    it 'calls lists/:list_id/interest-categories/:interest_category_id/interests with all IDs populated' do
       stub_request(:get, SINGLE_INTEREST_CATEGORY_URL + '/interests')
         .to_return status: 200, body: load_fixture(:interests)
 
@@ -47,6 +47,16 @@ describe MailchimpAPI::InterestCategory do
       interest_category.interests
 
       assert_requested :get, SINGLE_INTEREST_CATEGORY_URL + '/interests'
+    end
+
+    it 'uses provided params' do
+      stub_request(:get, SINGLE_INTEREST_CATEGORY_URL + '/interests?offset=123')
+        .to_return status: 200, body: load_fixture(:interests)
+
+      interest_category = MailchimpAPI::InterestCategory.find 'ic1234', params: { list_id: 'list1234' }
+      interest_category.interests offset: 123
+
+      assert_requested :get, SINGLE_INTEREST_CATEGORY_URL + '/interests?offset=123'
     end
   end
 
