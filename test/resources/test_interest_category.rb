@@ -4,7 +4,7 @@ require 'test_helper'
 
 describe MailchimpAPI::InterestCategory do
   ALL_INTEREST_CATEGORIES_URL = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/lists/list1234/interest-categories'
-  SINGLE_INTEREST_CATEGORY_URL = 'https://__API_REGION_IDENTIFIER__.api.mailchimp.com/3.0/lists/list1234/interest-categories/ic1234'
+  SINGLE_INTEREST_CATEGORY_URL = ALL_INTEREST_CATEGORIES_URL + '/ic1234'
 
   before do
     stub_request(:get, ALL_INTEREST_CATEGORIES_URL)
@@ -38,8 +38,20 @@ describe MailchimpAPI::InterestCategory do
     end
   end
 
-  describe 'PATCH /interest-categories/:interest_category_id' do
-    it 'update_uses_patch_request' do
+  describe 'interests' do
+    it 'calls lists/:list_id/interest-categories/:interest_category_id with all IDs populated' do
+      stub_request(:get, SINGLE_INTEREST_CATEGORY_URL + '/interests')
+        .to_return status: 200, body: load_fixture(:interests)
+
+      interest_category = MailchimpAPI::InterestCategory.find 'ic1234', params: { list_id: 'list1234' }
+      interest_category.interests
+
+      assert_requested :get, SINGLE_INTEREST_CATEGORY_URL + '/interests'
+    end
+  end
+
+  describe 'update' do
+    it 'calls PATCH /interest-categories/:interest_category_id' do
       stub_request(:patch, SINGLE_INTEREST_CATEGORY_URL)
         .to_return status: 200
 
