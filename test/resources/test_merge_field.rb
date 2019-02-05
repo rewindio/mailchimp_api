@@ -65,7 +65,6 @@ describe MailchimpAPI::MergeField do
     end
   end
 
-  # create
   describe 'POST /merge-fields' do
     before do
       stub_request(:post, ALL_MERGE_FIELDS_URL)
@@ -79,6 +78,21 @@ describe MailchimpAPI::MergeField do
       merge_field.save!
 
       assert_requested :post, ALL_MERGE_FIELDS_URL
+    end
+  end
+
+  describe 'DELETE /merge-fields/:merge_field_id' do
+    let(:merge_field) { MailchimpAPI::MergeField.find 1, params: { list_id: 'list1234' } }
+
+    before do
+      stub_request(:delete, SINGLE_MERGE_FIELD_URL)
+        .to_return status: 204, body: nil
+    end
+
+    it 'deletes an existing merge field' do
+      merge_field.destroy
+
+      assert_requested :delete, SINGLE_MERGE_FIELD_URL
     end
   end
 end
