@@ -29,6 +29,10 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+  - 'test/**/*'
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
