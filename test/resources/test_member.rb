@@ -58,6 +58,16 @@ describe MailchimpAPI::Member do
 
       assert_requested :get, SINGLE_MEMBER_URL + '/notes'
     end
+
+    it 'uses provided params' do
+      stub_request(:get, SINGLE_MEMBER_URL + '/notes?offset=123')
+        .to_return status: 200, body: load_fixture(:notes)
+
+      member = MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' }
+      member.notes offset: 123
+
+      assert_requested :get, SINGLE_MEMBER_URL + '/notes?offset=123'
+    end
   end
 
   describe 'POST /members/:member_id/actions/delete-permanent' do
