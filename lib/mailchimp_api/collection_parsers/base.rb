@@ -14,7 +14,7 @@ module MailchimpAPI::CollectionParsers
     protected
 
     def element_key
-      self.class.name.demodulize.downcase.pluralize
+      self.class.name.demodulize.underscore.pluralize
     end
 
     def instantiate_links(links)
