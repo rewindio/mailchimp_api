@@ -11,6 +11,8 @@
 /tmp/
 *.tags*
 .idea/*
+.vscode/*
+.solargraph.yml
 dev-config.yml
 
 ## Documentation cache and generated files:
