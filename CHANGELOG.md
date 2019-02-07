@@ -9,5 +9,6 @@
 - Support of '/lists/<id>/interest-categories/<id>/interests'
 - Support of '/lists/<id>/members'
 - Support of '/lists/<id>/members/<id>/notes'
+- Support of '/lists/<id>/segments'
 - `.count` support
 - Support of '/lists/<id>/merge-fields'
