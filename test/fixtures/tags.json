@@ -1,0 +1,12 @@
+{
+  "tags": [{
+    "id": 1234,
+    "name": "Handsome",
+    "date_added": "2019-02-14T16:05:37+00:00"
+  }, {
+    "id": 1235,
+    "name": "McTesterson",
+    "date_added": "2018-12-20T19:24:20+00:00"
+  }],
+  "total_items": 2
+}

@@ -51,7 +51,7 @@ describe MailchimpAPI::Member do
   describe 'notes' do
     it 'calls lists/:list_id/members/:member_id/notes with all IDs populated' do
       stub_request(:get, SINGLE_MEMBER_URL + '/notes')
-        .to_return status: 200, body: load_fixture(:member)
+        .to_return status: 200, body: load_fixture(:notes)
 
       member = MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' }
       member.notes
@@ -67,6 +67,28 @@ describe MailchimpAPI::Member do
       member.notes offset: 123
 
       assert_requested :get, SINGLE_MEMBER_URL + '/notes?offset=123'
+    end
+  end
+
+  describe 'tags' do
+    it 'calls lists/:list_id/members/:member_id/tags with all IDs populated' do
+      stub_request(:get, SINGLE_MEMBER_URL + '/tags')
+        .to_return status: 200, body: load_fixture(:tags)
+
+      member = MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' }
+      member.tags
+
+      assert_requested :get, SINGLE_MEMBER_URL + '/tags'
+    end
+
+    it 'uses provided params' do
+      stub_request(:get, SINGLE_MEMBER_URL + '/tags?offset=123')
+        .to_return status: 200, body: load_fixture(:tags)
+
+      member = MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' }
+      member.tags offset: 123
+
+      assert_requested :get, SINGLE_MEMBER_URL + '/tags?offset=123'
     end
   end
 
