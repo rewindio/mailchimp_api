@@ -20,6 +20,16 @@ module MailchimpAPI
       @notes ||= MailchimpAPI::Note.find(:all, params: { member_id: id }.deep_merge(prefix_options).deep_merge(params))
     end
 
+    # The path to get tags is '/3.0/lists/:list_id/members/:member_id'
+    # Unfortunately, ActiveResource does not support nested resources, only single parent resources:
+    #
+    # https://github.com/rails/activeresource/blob/4accda8bc03ceae0ad626f8cec0b4751e89a58ad/lib/active_resource/associations.rb#L151
+    #
+    # Using a has_many, there is no way to include the `list_id`, so we just create our own tags method.
+    def tags(params = {})
+      @tags ||= MailchimpAPI::Tag.find(:all, params: { member_id: id }.deep_merge(prefix_options).deep_merge(params))
+    end
+
     # non-RESTful actions
 
     # Delete all personally identifiable information related to a list member, and remove them from a list. This will make it impossible to re-import the list member
