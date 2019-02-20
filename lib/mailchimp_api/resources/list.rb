@@ -4,6 +4,8 @@ module MailchimpAPI
   class List < Base
     extend MailchimpAPI::Support::Countable
 
+    include MailchimpAPI::Support::PatchUpdate
+
     self.collection_parser = CollectionParsers::List
 
     has_many :interest_categories, class_name: 'MailchimpAPI::InterestCategory'
