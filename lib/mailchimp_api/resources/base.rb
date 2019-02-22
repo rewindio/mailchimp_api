@@ -33,6 +33,12 @@ module MailchimpAPI
 
         _headers || {}
       end
+
+      def exists?(id, options = {})
+        true if find id, options
+      rescue ActiveResource::ResourceNotFound
+        false
+      end
     end
 
     def to_h

@@ -42,4 +42,20 @@ describe MailchimpAPI::Base do
     assert_equal MailchimpAPI::Base.headers['Authorization'], 'OAuth '
     assert_equal MailchimpAPI::Base.site.to_s, MailchimpAPI.configuration.url
   end
+
+  describe 'exists' do
+    it 'returns false if item not found' do
+      stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/bases/123')
+        .to_return status: 404
+
+      assert_equal false, MailchimpAPI::Base.exists?(123)
+    end
+
+    it 'returns true if item found' do
+      stub_request(:get, 'https://__api_region_identifier__.api.mailchimp.com/3.0/bases/123')
+        .to_return status: 200, body: '{}'
+
+      assert_equal true, MailchimpAPI::Base.exists?(123)
+    end
+  end
 end
