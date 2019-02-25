@@ -12,5 +12,6 @@ module MailchimpAPI
     has_many :members,             class_name: 'MailchimpAPI::Member'
     has_many :merge_fields,        class_name: 'MailchimpAPI::MergeField'
     has_many :signup_forms,        class_name: 'MailchimpAPI::SignupForm'
+    has_many :segments,            class_name: 'MailchimpAPI::Segment'
   end
 end

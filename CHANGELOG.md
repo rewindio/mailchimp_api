@@ -11,6 +11,7 @@
 - Support of '/lists/<id>/members/<id>/notes'
 - Support of '/lists/<id>/members/<id>/tags'
 - Support of '/lists/<id>/segments'
+- Support of '/lists/<id>/segments/<id>/members'
 - Support of '/lists/<id>/merge-fields'
 - Support of '/lists/<id>/signup-forms'
 - `.count` support

@@ -40,5 +40,13 @@ module MailchimpAPI
         connection.post path, nil, self.class.headers
       end
     end
+
+    # Tags should be provided as an array of the form [{name: 'tag1', status: 'active'}, {name: 'tag2', status: 'inactive'}]
+    def update_tags(tags)
+      path = element_path(prefix_options) + '/tags'
+      body = { tags: tags }.to_json
+
+      connection.post path, body, self.class.headers
+    end
   end
 end
