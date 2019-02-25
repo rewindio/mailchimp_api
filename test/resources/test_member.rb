@@ -106,4 +106,19 @@ describe MailchimpAPI::Member do
       assert_requested :post, MEMBER_ACTION_URL + '/delete-permanent'
     end
   end
+
+  describe 'update_tags' do
+    let(:member) { MailchimpAPI::Member.find 'm1234', params: { list_id: 'list1234' } }
+
+    before do
+      stub_request(:post, SINGLE_MEMBER_URL + '/tags')
+        .to_return status: 204, body: nil
+    end
+
+    it 'should send body as json' do
+      member.update_tags [{ name: 'hi', status: 'active' }]
+
+      assert_requested :post, SINGLE_MEMBER_URL + '/tags', body: '{"tags":[{"name":"hi","status":"active"}]}'
+    end
+  end
 end
