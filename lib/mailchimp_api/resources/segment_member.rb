@@ -11,7 +11,7 @@ module MailchimpAPI
     self.prefix = '/3.0/lists/:list_id/segments/:segment_id/'
 
     def update
-      raise 'Cannot update SegmentMember. Please use POST to add to a Segment, or DELETE to remove from a Segment.'
+      raise MailchimpAPI::InvalidOperation.new 'Cannot update SegmentMember. Please use POST to add to a Segment, or DELETE to remove from a Segment.'
     end
   end
 end

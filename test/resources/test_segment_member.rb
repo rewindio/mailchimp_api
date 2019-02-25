@@ -37,7 +37,7 @@ describe MailchimpAPI::SegmentMember do
     it 'is not supported' do
       segment_member = MailchimpAPI::SegmentMember.first params: { list_id: 'list1234', segment_id: 's1234' }
       error =
-        assert_raises do
+        assert_raises MailchimpAPI::InvalidOperation do
           segment_member.email_address = 'nope'
           segment_member.save
         end

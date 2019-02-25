@@ -6,4 +6,10 @@ module MailchimpAPI
       super
     end
   end
+
+  class InvalidOperation < StandardError
+    def initialize(msg = 'The requested operation is not valid')
+      super
+    end
+  end
 end
