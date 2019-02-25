@@ -35,7 +35,7 @@ module MailchimpAPI
       end
 
       def exists?(id, options = {})
-        true if find id, options
+        true if find id, options.deep_merge(params: { fields: primary_key })
       rescue ActiveResource::ResourceNotFound
         false
       end
