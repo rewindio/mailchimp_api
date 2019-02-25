@@ -15,3 +15,4 @@
 - Support of '/lists/<id>/merge-fields'
 - Support of '/lists/<id>/signup-forms'
 - `.count` support
+- `exists?` support
