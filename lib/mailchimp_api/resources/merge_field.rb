@@ -3,6 +3,7 @@
 module MailchimpAPI
   class MergeField < Base
     extend MailchimpAPI::Support::Countable
+    extend MailchimpAPI::Support::Enumerable
 
     include MailchimpAPI::Support::PatchUpdate
 

@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z lib`.split("\x0") + %w[CHANGELOG.md LICENSE README.md]
 
   spec.add_runtime_dependency 'activeresource', '~> 5.1.0'
+  spec.add_runtime_dependency 'caching_enumerator', '~> 0.0.1'
 
   spec.add_development_dependency 'bundler', '~> 2.0.1'
   spec.add_development_dependency 'rake', '~> 12.3.2'

@@ -16,3 +16,4 @@
 - Support of '/lists/<id>/signup-forms'
 - `.count` support
 - `exists?` support
+- `enumerator` support

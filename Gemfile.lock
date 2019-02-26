@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    mailchimp_api (1.0.0.pre.11)
+    mailchimp_api (1.0.0.pre.12)
       activeresource (~> 5.1.0)
+      caching_enumerator (~> 0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -27,6 +28,7 @@ GEM
     ansi (1.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    caching_enumerator (0.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     crack (0.4.3)
