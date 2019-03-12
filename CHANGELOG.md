@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.1.0]
+
+- Support of `/template-folders`
+
 ## [1.0.0]
 
 ### Added

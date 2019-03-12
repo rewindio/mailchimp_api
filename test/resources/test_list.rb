@@ -45,7 +45,7 @@ describe MailchimpAPI::List do
     end
   end
 
-  describe 'GET /links/:link_id' do
+  describe 'GET /lists/:list_id' do
     it 'fetches specific list' do
       list = MailchimpAPI::List.find LIST_ID
 
