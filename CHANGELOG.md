@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.3.0]
+
+- Support of `/campaign-folders`
+
 ## [1.2.0]
 
 - Support of `/campaigns`
