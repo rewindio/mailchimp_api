@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.5.0]
+
+- Support of `/templates`
+
 ## [1.4.0]
 
 - Support of `/file-manager/folders`
