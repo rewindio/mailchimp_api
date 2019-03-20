@@ -10,8 +10,8 @@ module MailchimpAPI
 
     class << self
       # CampaignContent doesn't have an ID
-      # `/3.0/campaigns/:campaign_id/content` only returns a single object
-      # this overrides ActiveResource::Base#find to massage all calls into
+      # `/3.0/campaigns/:campaign_id/content` only returns a single object.
+      # This overrides ActiveResource::Base#find to massage all calls to grab the one campaign content.
       def find(*args)
         options = args.slice!(1) || {}
 

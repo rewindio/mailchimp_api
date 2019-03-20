@@ -2,7 +2,7 @@
 
 ## [1.6.0]
 
-- Support of `/campaigns/:campagin_id/content`
+- Support of `/campaigns/:campaign_id/content`
 
 ## [1.5.0]
 
