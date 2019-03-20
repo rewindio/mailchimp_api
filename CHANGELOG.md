@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.6.0]
+
+- Support of `/campaigns/:campagin_id/content`
+
 ## [1.5.0]
 
 - Support of `/templates`
