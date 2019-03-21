@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.7.0]
+
+- Support of `/campaigns/:campaign_id/feedback`
+
 ## [1.6.0]
 
 - Support of `/campaigns/:campaign_id/content`

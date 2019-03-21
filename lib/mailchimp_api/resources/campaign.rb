@@ -8,6 +8,8 @@ module MailchimpAPI
 
     self.collection_parser = CollectionParsers::Campaign
 
+    has_many :feedback, class_name: 'MailchimpAPI::Feedback'
+
     # Define all bodiless, non-RESTful actions
     %w[
       cancel-send
