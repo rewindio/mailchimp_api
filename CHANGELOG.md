@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.8.0]
+
+- Support of `/file-manager/files`
+
 ## [1.7.0]
 
 - Support of `/campaigns/:campaign_id/feedback`

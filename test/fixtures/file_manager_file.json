@@ -1,0 +1,36 @@
+{
+  "id": 1,
+  "folder_id": 1,
+  "type": "image",
+  "name": "8bedroomvillainvalejudeunearvilamoura copy 4.jpeg",
+  "full_size_url": "https://example.com/images/1.jpeg",
+  "thumbnail_url": "https://example.com/_thumbs/1.jpeg",
+  "size": 38633,
+  "created_at": "2019-03-18T17:52:06+00:00",
+  "created_by": "Testy McTesterson",
+  "width": 700,
+  "height": 400,
+  "_links": [{
+    "rel": "self",
+    "href": "https://us7.api.mailchimp.com/3.0/file-manager/files/1",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/FileManager/Files/Response.json"
+  }, {
+    "rel": "update",
+    "href": "https://us7.api.mailchimp.com/3.0/file-manager/files/1",
+    "method": "PATCH",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/FileManager/Files/Response.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/FileManager/Files/PATCH.json"
+  }, {
+    "rel": "delete",
+    "href": "https://us7.api.mailchimp.com/3.0/file-manager/files/1",
+    "method": "DELETE",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/FileManager/Files/Instance.json"
+  }, {
+    "rel": "parent",
+    "href": "https://us7.api.mailchimp.com/3.0/file-manager/files",
+    "method": "GET",
+    "targetSchema": "https://us7.api.mailchimp.com/schema/3.0/Definitions/FileManager/Files/CollectionResponse.json",
+    "schema": "https://us7.api.mailchimp.com/schema/3.0/CollectionLinks/FileManager/Files.json"
+  }]
+}
