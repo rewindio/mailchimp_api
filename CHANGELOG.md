@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.10.0]
+
+### Added
+- For newer versions of ActiveResoure, we will set the `connection_class` instead of monkey-patching ::Connection
+
 ## [1.9.0]
 
 ### Added
