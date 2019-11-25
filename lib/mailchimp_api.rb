@@ -6,9 +6,6 @@ $LOAD_PATH.unshift File.dirname(__FILE__)
 require 'activeresource'
 require 'caching_enumerator'
 
-# gem extensions
-require 'active_resource/connection_ext'
-
 require 'mailchimp_api/version'
 require 'mailchimp_api/configuration'
 
@@ -23,3 +20,9 @@ require 'mailchimp_api/session'
 
 require 'mailchimp_api/collection_parsers'
 require 'mailchimp_api/resources'
+
+if MailchimpAPI::Base.respond_to?(:connection_class)
+  MailchimpAPI::Base.connection_class = MailchimpAPI::Connection
+else
+  require 'active_resource/connection_ext'
+end
